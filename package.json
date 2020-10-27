@@ -1,0 +1,24 @@
+{
+  "name": "caill-automatic",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitaliyeb/cellular-automaton.git"
+  },
+  "author": "vitaliyebnpm install --save-dev webpack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vitaliyeb/cellular-automaton/issues"
+  },
+  "homepage": "https://github.com/vitaliyeb/cellular-automaton#readme",
+  "devDependencies": {
+    "webpack": "^5.3.0",
+    "webpack-cli": "^4.1.0"
+  }
+}

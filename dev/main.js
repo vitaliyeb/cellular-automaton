@@ -1,2 +1,2 @@
-import './canvasInterface.ts';
+import './CellAutomatic.ts';
 import './style.styl';

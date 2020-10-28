@@ -15,6 +15,14 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'awesome-typescript-loader'
             },
+            {
+                test: /\.styl$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'stylus-loader'
+                ]
+            },
         ],
     },
     resolve: {

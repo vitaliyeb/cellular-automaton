@@ -1,7 +1,9 @@
 
 class CanvasInterface {
-    cnv: any ;
+    cnv: any;
     ctx: any;
+    w: number;
+    h: number;
 
     constructor() {
         this.cnv = document.getElementById('canvas');

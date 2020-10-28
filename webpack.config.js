@@ -3,7 +3,7 @@ const { CheckerPlugin } = require('awesome-typescript-loader')
 const path = require('path');
 
 module.exports = {
-    entry: './dev/main.ts',
+    entry: './dev/main.js',
     mode: 'development',
     output: {
         filename: 'main.js',

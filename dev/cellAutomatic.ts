@@ -1,4 +1,4 @@
-import Parametrs from './parametrs';
+import { Parametrs } from './parametrs';
 import DrawMap from './drawMap';
 
 class CellAutomatic {

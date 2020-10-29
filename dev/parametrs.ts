@@ -9,11 +9,12 @@ class Cell implements ICell{
     type: number;
     score: number;
     constructor(type: number, score: number) {
-
+        this.type = type;
+        this.score = score;
     }
 }
 
-export default class Parametrs {
+class Parametrs {
     cellSize: number;
     table: ICell[][];
     сonsideredNeighbors: string[];
@@ -32,7 +33,12 @@ export default class Parametrs {
             type: 0,
             score: 0
         };
-        let table: ICell[][] = Array(hDivision).fill(Array(wDivision).fill(cellObject));
+        let table: ICell[][] = Array(hDivision).fill(Array(wDivision).fill(new Cell(0, 0)));
         this.table = table;
     }
+}
+
+export {
+    Cell,
+    Parametrs
 }

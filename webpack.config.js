@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
     entry: './dev/main.js',
-    mode: 'development',
+    // mode: 'development',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
@@ -36,7 +36,7 @@ module.exports = {
         new CheckerPlugin()
     ],
     devServer: {
-        contentBase: path.join(__dirname),
+        contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 3000
     }

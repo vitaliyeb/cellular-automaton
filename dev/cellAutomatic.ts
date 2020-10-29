@@ -17,22 +17,18 @@ class CellAutomatic {
         this.parametrs = new Parametrs();
         this.drawApi = new DrawMap(this.ctx);
 
-        window.addEventListener('resize', ()=> {
-            this.setSize()
-        });
+        window.addEventListener('resize', ()=> this.setSize());
     }
 
     setSize(): void{
-        console.log(document.documentElement.clientHeight);
         this.cnv.width = this.w = Math.floor(document.documentElement.clientWidth);
         this.cnv.height = this.h = Math.floor(document.documentElement.clientHeight);
-        console.log(this.cnv.width, this.cnv.height, this.h)
     }
 
     init(): void{
         this.setSize();
-        // this.parametrs.createTable(this.w, this.h);
-        // this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+        this.parametrs.createTable(this.w, this.h);
+        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 
 }
@@ -41,7 +37,5 @@ window.onload = () => {
     let cellAutomatic = new CellAutomatic();
     cellAutomatic.init();
     console.log(cellAutomatic);
-    console.log('s',"2121");
-    
 }
 

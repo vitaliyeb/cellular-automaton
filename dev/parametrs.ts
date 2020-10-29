@@ -28,12 +28,19 @@ class Parametrs {
     createTable(w: number, h: number) {
         let { cellSize } = this;
         let wDivision: number = Math.ceil(w / cellSize),
-            hDivision: number = Math.ceil( h / cellSize);
-        let cellObject: ICell = {
-            type: 0,
-            score: 0
-        };
-        let table: ICell[][] = Array(hDivision).fill(Array(wDivision).fill(new Cell(1, 0)));
+            hDivision: number = Math.ceil( h / cellSize),
+            table: ICell[][] = [];
+
+        for( let h = 0; h < hDivision; h++ ){
+            let row = [];
+            for( let w = 0; w < wDivision; w++ ) row.push( new Cell(0, 0));
+            table.push(row);
+        }
+
+        console.log(table);
+        
+        table[5][7] = new Cell(1, 0);
+        
         this.table = table;
     }
 }

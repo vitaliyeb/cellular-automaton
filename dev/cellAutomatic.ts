@@ -19,7 +19,6 @@ class CellAutomatic {
         this.parametrs = new Parametrs();
         this.drawApi = new DrawMap(this.ctx);
 
-
         window.addEventListener('resize', ()=> this.setSize());
     }
 
@@ -31,7 +30,7 @@ class CellAutomatic {
     init(): void{
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
-        this.drawApi.drawCellMap(this.parametrs.cellSize);
+        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 
 }

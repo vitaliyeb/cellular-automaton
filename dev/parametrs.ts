@@ -1,7 +1,21 @@
 
+
+interface ICell {
+    type: number;
+    score: number;
+}
+
+class Cell implements ICell{
+    type: number;
+    score: number;
+    constructor(type: number, score: number) {
+
+    }
+}
+
 export default class Parametrs {
     cellSize: number;
-    table: object[];
+    table: ICell[][];
     сonsideredNeighbors: string[];
 
     constructor() {
@@ -14,10 +28,11 @@ export default class Parametrs {
         let { cellSize } = this;
         let wDivision: number = Math.ceil(w / cellSize),
             hDivision: number = Math.ceil( h / cellSize);
-        let table: object[] = Array(hDivision).fill(Array(wDivision).fill({
+        let cellObject: ICell = {
             type: 0,
             score: 0
-        }));
+        };
+        let table: ICell[][] = Array(hDivision).fill(Array(wDivision).fill(cellObject));
         this.table = table;
     }
 }

@@ -1,7 +1,10 @@
 
 interface DrawMapInterface {
-    drawCellMap(cellSize: number): void;
+    drawCellMap(table: object[][], cellSize: number): void;
 }
+
+
+
 
 
 export default class DrawMap implements DrawMapInterface{
@@ -11,10 +14,15 @@ export default class DrawMap implements DrawMapInterface{
         this.ctx = ctx;
     }
 
-    drawCellMap(cellSize: number): void {
+    drawCellMap(table: object[][], cellSize: number): void {
         let { ctx } = this;
-        ctx.beginPath();
-
+        for (let i = 0; i < table.length; i++){
+            for (let j = 0; j < table[i].length; j++){
+                ctx.beginPath();
+                // ctx.fillStyle = table[i][j].type ? '#000' : '#fff';
+                ctx.fillRect( cellSize * j, cellSize * i, cellSize , cellSize);
+            }
+        }
 
     }
 }

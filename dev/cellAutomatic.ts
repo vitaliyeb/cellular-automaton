@@ -18,7 +18,6 @@ class CellAutomatic {
         this.drawApi = new DrawMap(this.ctx);
 
         window.addEventListener('resize', ()=> {
-            console.log('resize');
             this.setSize()
         });
     }
@@ -37,6 +36,12 @@ class CellAutomatic {
     }
 
 }
-let cellAutomatic = new CellAutomatic();
-cellAutomatic.init();
-console.log(cellAutomatic)
+
+window.onload = () => {
+    let cellAutomatic = new CellAutomatic();
+    cellAutomatic.init();
+    console.log(cellAutomatic);
+    console.log('s',"2121");
+    
+}
+

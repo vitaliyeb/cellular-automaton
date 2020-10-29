@@ -33,7 +33,7 @@ class Parametrs {
             type: 0,
             score: 0
         };
-        let table: ICell[][] = Array(hDivision).fill(Array(wDivision).fill(new Cell(0, 0)));
+        let table: ICell[][] = Array(hDivision).fill(Array(wDivision).fill(new Cell(1, 0)));
         this.table = table;
     }
 }

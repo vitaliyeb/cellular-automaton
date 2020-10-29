@@ -36,7 +36,7 @@ module.exports = {
         new CheckerPlugin()
     ],
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname),
         compress: true,
         port: 3000
     }

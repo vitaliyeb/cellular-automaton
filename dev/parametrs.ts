@@ -36,10 +36,6 @@ class Parametrs {
             for( let w = 0; w < wDivision; w++ ) row.push( new Cell(0, 0));
             table.push(row);
         }
-
-        console.log(table);
-        
-        table[5][7] = new Cell(1, 0);
         
         this.table = table;
     }

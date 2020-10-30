@@ -30,12 +30,22 @@ class CellAutomatic {
         for( let row = 0; row < table.length; row++ ){
             for (let col = 0; col < table[row].length; col++) {
                 let cell = table[row][col];
-                rosibleRules.forEach((f)=> {
-                    f(row, col) ? ++cell.score : false;
-                });
+                cell.score = 0;
+                rosibleRules.forEach((f)=> f(row, col) ? ++cell.score : false );
             }
         }
+    }
+
+    changeCellType(): void{
+        let table: Cell[][] = this.parametrs.table;
         
+
+        for( let row = 0; row < table.length; row++ ){
+            for (let col = 0; col < table[row].length; col++) {
+                let cell = table[row][col];
+                
+            }
+        }
     }
 
     setSize(): void{
@@ -47,6 +57,7 @@ class CellAutomatic {
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
         this.calculationTable();
+        this.changeCellType();
         this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 

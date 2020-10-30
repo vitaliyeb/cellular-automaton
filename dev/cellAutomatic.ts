@@ -22,12 +22,17 @@ class CellAutomatic {
 
     calculationTable(): void{
         let table: Cell[][] = this.parametrs.table,
-            regulation: IRegulirationFunc[] = this.parametrs.regulation;
+            allRegulation: IRegulirationFunc[] = this.parametrs.regulation,
+            сonsideredNeighbors: number[] = this.parametrs.сonsideredNeighbors,
+            rosibleRules = сonsideredNeighbors.map((el, index) => allRegulation[index]);
+            
+
         for( let row = 0; row < table.length; row++ ){
             for (let col = 0; col < table[row].length; col++) {
-                let el = table[0][0];
-                el.type = 1;
-                
+                let cell = table[row][col];
+                rosibleRules.forEach((f)=> {
+                    f(row, col) ? ++cell.score : false;
+                });
             }
         }
         
@@ -41,8 +46,8 @@ class CellAutomatic {
     init(): void{
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
-        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
         this.calculationTable();
+        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 
 }

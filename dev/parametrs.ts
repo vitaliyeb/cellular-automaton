@@ -30,7 +30,8 @@ class Parametrs {
         this.table = undefined;
         this.сonsideredNeighbors = [0, 1, 2, 3, 4, 5, 6, 7];
         this.regulation = [
-
+            (row: number, col: number)=> this.table[row][col]['type'] === 1, //0
+            (row: number, col: number)=> this.table[row][col]['type'] === 1  //1
         ]
     }
 
@@ -52,5 +53,6 @@ class Parametrs {
 
 export {
     Cell,
-    Parametrs
+    Parametrs,
+    IRegulirationFunc
 }

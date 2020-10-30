@@ -1,4 +1,4 @@
-import { Parametrs } from './parametrs';
+import { Parametrs, Cell, IRegulirationFunc } from './parametrs';
 import DrawMap from './drawMap';
 
 class CellAutomatic {
@@ -21,7 +21,15 @@ class CellAutomatic {
     }
 
     calculationTable(): void{
-
+        let table: Cell[][] = this.parametrs.table,
+            regulation: IRegulirationFunc[] = this.parametrs.regulation;
+        for( let row = 0; row < table.length; row++ ){
+            for (let col = 0; col < table[row].length; col++) {
+                let el = table[0][0];
+                el.type = 1;
+                
+            }
+        }
         
     }
 

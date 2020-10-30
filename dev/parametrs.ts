@@ -5,6 +5,11 @@ interface ICell {
     score: number;
 }
 
+interface IRegulirationFunc {
+    (row: number, column: number): boolean;
+}
+
+
 class Cell implements ICell{
     type: number;
     score: number;
@@ -17,12 +22,16 @@ class Cell implements ICell{
 class Parametrs {
     cellSize: number;
     table: ICell[][];
-    сonsideredNeighbors: string[];
+    сonsideredNeighbors: number[];
+    regulation: IRegulirationFunc[];
 
     constructor() {
         this.cellSize = 50;
         this.table = undefined;
-        this.сonsideredNeighbors = ['1', '2', '3', '4', '5', '6', '7', '8'];
+        this.сonsideredNeighbors = [0, 1, 2, 3, 4, 5, 6, 7];
+        this.regulation = [
+
+        ]
     }
 
     createTable(w: number, h: number) {

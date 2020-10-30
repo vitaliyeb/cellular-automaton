@@ -20,6 +20,11 @@ class CellAutomatic {
         window.addEventListener('resize', ()=> this.setSize());
     }
 
+    calculationTable(): void{
+
+        
+    }
+
     setSize(): void{
         this.cnv.width = this.w = Math.floor(document.documentElement.clientWidth);
         this.cnv.height = this.h = Math.floor(document.documentElement.clientHeight);
@@ -29,6 +34,7 @@ class CellAutomatic {
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
         this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+        this.calculationTable();
     }
 
 }

@@ -43,7 +43,8 @@ class CellAutomatic {
         for( let row = 0; row < table.length; row++ ){
             for (let col = 0; col < table[row].length; col++) {
                 let cell = table[row][col];
-                
+                let newType = this.parametrs.changeTypeCellFunc(cell.score, cell.type);
+                cell.type = newType;
             }
         }
     }

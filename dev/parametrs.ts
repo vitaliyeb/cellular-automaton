@@ -27,7 +27,7 @@ class Parametrs {
     regulation: IRegulirationFunc[];
 
     constructor() {
-        this.cellSize = 50;
+        this.cellSize = 40;
         this.table = undefined;
         this.continuationlive = [2, 3];
         this.birth = [3];
@@ -52,8 +52,8 @@ class Parametrs {
 
     createTable(w: number, h: number) {
         let { cellSize } = this;
-        let wDivision: number = Math.ceil(w / cellSize),
-            hDivision: number = Math.ceil( h / cellSize),
+        let wDivision: number = Math.floor(w / cellSize),
+            hDivision: number = Math.floor( h / cellSize),
             table: ICell[][] = [];
 
         for( let h = 0; h < hDivision; h++ ){

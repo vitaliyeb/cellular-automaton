@@ -50,8 +50,12 @@ class CellAutomatic {
     }
 
     setSize(): void{
-        this.cnv.width = this.w = Math.floor(document.documentElement.clientWidth);
-        this.cnv.height = this.h = Math.floor(document.documentElement.clientHeight);
+        let cellSize: number = this.parametrs.cellSize,
+            w = Math.floor(document.documentElement.clientWidth / cellSize) * cellSize,
+            h = Math.floor(document.documentElement.clientHeight / cellSize) * cellSize;
+
+        this.cnv.width = this.w = w;
+        this.cnv.height = this.h = h;
     }
 
     init(): void{

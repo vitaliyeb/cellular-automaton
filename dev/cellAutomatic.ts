@@ -9,6 +9,7 @@ class CellAutomatic {
     h: number;
     parametrs: Parametrs;
     drawApi: DrawMap;
+    [propName: string]: any;
 
     constructor() {
         this.cnv = document.getElementById('canvas');
@@ -19,7 +20,10 @@ class CellAutomatic {
         this.drawApi = new DrawMap(this.ctx);
 
         window.addEventListener('resize', ()=> this.setSize());
-        document.querySelector('.panel').addEventListener('click', ()=>console.log('sss'))
+        document.querySelector('.panel').addEventListener('click', (e: any)=>{
+            let methodName: string = e.target.getAttribute("data-method");
+            if(methodName) return this[methodName](e);
+        });
     }
 
     calculationTable(): void{
@@ -62,8 +66,8 @@ class CellAutomatic {
 
 
 
-    openClose(): void{
-
+    openClosePanel(e: Event): void{
+        document.querySelector('.panel').classList.toggle('panel_active');
     }
 
     init(): void{

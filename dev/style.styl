@@ -27,6 +27,10 @@ body
   height 100%
   right calc(-1 * var(--panelWidth))
   background-color blueviolet
+  &_active 
+    right 0
+    & ^[-1]__open
+      transform translate(-50%, -50%) scaleX(1)
   &__open
     left 0
     width 26px

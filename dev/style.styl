@@ -10,20 +10,48 @@ body
   justify-content center
   background-color #c2acb5
 
-.screen 
+.screen
+  --panelWidth clamp(10px, 100%, 320px)
   position relative
   overflow hidden
   display flex
-  &:hover 
-    & .panel 
-      transform translateX(0);
+  //&:hover
+  //  & .panel
+  //    right 0
 
 .panel 
-  position absolute  
-  width 100%
-  max-width 320px
-  transform translateX(100%)
+  position absolute
+  width var(--panelWidth)
+  //transform translateX(100%)
+  transition: right .5s linear
   height 100%
-  background-color red
-  right 0
-  animation 3s linear
+  right 0//calc(-1 * var(--panelWidth))
+  background-color blueviolet
+  &__open
+    left 0
+    width 26px
+    position relative
+    height 26px
+    border-radius 26px
+    background-color #f7f7f7
+    border 2px solid #858181
+    box-sizing border-box
+    display inline-block
+    top 50%
+    cursor pointer
+    transform translate(-50%, -50%) scaleX(-1)
+    &:before
+    &:after
+      content ''
+      position absolute
+      width 10px
+      height 2px
+      background-color black
+      left 7px
+    &:before
+      top 7px
+      transform rotate(45deg)
+    &:after
+      bottom 7px
+      transform rotate(-45deg)
+

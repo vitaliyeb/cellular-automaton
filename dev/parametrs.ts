@@ -69,6 +69,7 @@ class Parametrs {
     }
 }
 
+
 export {
     Cell,
     Parametrs,

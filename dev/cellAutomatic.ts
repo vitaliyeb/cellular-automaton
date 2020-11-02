@@ -1,5 +1,6 @@
 import { Parametrs, Cell, IRegulirationFunc } from './parametrs';
 import DrawMap from './drawMap';
+import {makeLogger} from "ts-loader/dist/logger";
 
 class CellAutomatic {
     cnv: any;
@@ -18,6 +19,7 @@ class CellAutomatic {
         this.drawApi = new DrawMap(this.ctx);
 
         window.addEventListener('resize', ()=> this.setSize());
+        document.querySelector('.panel').addEventListener('click', ()=>console.log('sss'))
     }
 
     calculationTable(): void{
@@ -56,6 +58,12 @@ class CellAutomatic {
 
         this.cnv.width = this.w = w;
         this.cnv.height = this.h = h;
+    }
+
+
+
+    openClose(): void{
+
     }
 
     init(): void{

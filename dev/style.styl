@@ -29,6 +29,17 @@ body
   background-color #847d89cf
   box-sizing border-box
   padding 10px
+  &__buttons
+    display grid
+    grid-template-columns repeat(3, 1fr)
+    grid-column-gap 10px
+    justify-items center
+    & > p
+      background-color #87afc7
+      line-height 19px
+      cursor pointer
+      border 1px solid #0000005e
+      padding 5px 12px
   &_active 
     right 0
     & ^[-1]__open

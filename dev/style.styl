@@ -26,13 +26,15 @@ body
   transition: right .5s linear
   height 100%
   right calc(-1 * var(--panelWidth))
-  background-color blueviolet
+  background-color #847d89cf
+  box-sizing border-box
+  padding 10px
   &_active 
     right 0
     & ^[-1]__open
       transform translate(-50%, -50%) scaleX(1)
   &__open
-    left 0
+    left -10px
     width 26px
     position relative
     height 26px

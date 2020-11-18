@@ -7,6 +7,7 @@ class CellAutomatic {
     ctx: any;
     w: number;
     h: number;
+    changeCeillTimerId: any;
     parametrs: Parametrs;
     drawApi: DrawMap;
     [propName: string]: any;
@@ -14,6 +15,7 @@ class CellAutomatic {
     constructor() {
         this.cnv = document.getElementById('canvas');
         this.ctx = this.cnv.getContext('2d');
+        changeCeillTimerId: undefined;
         this.w = 0;
         this.h = 0;
         this.parametrs = new Parametrs();
@@ -24,6 +26,15 @@ class CellAutomatic {
             let methodName: string = e.target.getAttribute("data-method");
             if(methodName) return this[methodName](e);
         });
+    }
+
+    start(): void{
+        this.changeCeillTimerId = setTimeout(()=>{
+            this.calculationTable();
+            this.changeCellType();
+            this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+            this.start();
+        }, this.parametrs.interval);
     }
 
     calculationTable(): void{
@@ -73,9 +84,7 @@ class CellAutomatic {
     init(): void{
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
-        this.calculationTable();
-        this.changeCellType();
-        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+        this.start();
     }
 
 }

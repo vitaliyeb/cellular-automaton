@@ -20,6 +20,7 @@ class Cell implements ICell{
 
 class Parametrs {
     cellSize: number;
+    interval: number;
     table: ICell[][];
     continuationlive: number[];
     birth: number[];
@@ -28,6 +29,7 @@ class Parametrs {
 
     constructor() {
         this.cellSize = 40;
+        this.interval = 200;
         this.table = undefined;
         this.continuationlive = [2, 3];
         this.birth = [3];
@@ -61,10 +63,13 @@ class Parametrs {
             for( let w = 0; w < wDivision; w++ ) row.push( new Cell(0, 0));
             table.push(row);
         }
-        table[5][4] =  new Cell(1, 0);
-        table[5][5] =  new Cell(1, 0);
-        table[5][6] =  new Cell(1, 0);
-        
+        table[3][2] =  new Cell(1, 0);
+        table[3][3] =  new Cell(1, 0);
+        table[3][4] =  new Cell(1, 0);
+        table[2][4] =  new Cell(1, 0);
+        table[1][3] =  new Cell(1, 0);
+
+
         this.table = table;
     }
 }

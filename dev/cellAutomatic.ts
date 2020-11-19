@@ -37,6 +37,10 @@ class CellAutomatic {
         }, this.parametrs.interval);
     }
 
+    stop(): void {
+        
+    }
+
     calculationTable(): void{
         let table: Cell[][] = this.parametrs.table,
             allRegulation: IRegulirationFunc[] = this.parametrs.regulation,

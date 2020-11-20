@@ -39,10 +39,18 @@ class CellAutomatic {
         }, this.parametrs.interval);
     }
 
-    stop(): void {
+    pause(): void {
         clearTimeout(this.changeCeillTimerId);
         this.changeCeillTimerId = undefined;
     }
+
+    stop(): void {
+        this.pause();
+        let table: object[][] = this.parametrs.table;
+        this.parametrs.resetTable();
+        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+    }
+
 
     initEventsPanel(): void {
         document.querySelector('.panel').addEventListener('click', (e)=>{

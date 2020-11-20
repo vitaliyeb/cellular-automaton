@@ -52,6 +52,16 @@ class Parametrs {
         return 0;
     }
 
+    resetTable(): void{
+        for( let i = 0; i < this.table.length; i++ ){
+            let row = this.table[i];
+            for( let j = 0; j < row.length; j++ ) {
+                row[j].score = 0;
+                if (row[j].type) row[j].type = 0 ;
+            }
+        }
+    }
+
     createTable(w: number, h: number) {
         let { cellSize } = this;
         let wDivision: number = Math.floor(w / cellSize),

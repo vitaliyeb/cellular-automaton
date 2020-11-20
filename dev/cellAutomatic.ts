@@ -15,7 +15,7 @@ class CellAutomatic {
     constructor() {
         this.cnv = document.getElementById('canvas');
         this.ctx = this.cnv.getContext('2d');
-        changeCeillTimerId: undefined;
+        this.changeCeillTimerId = 1000;
         this.w = 0;
         this.h = 0;
         this.parametrs = new Parametrs();
@@ -28,11 +28,15 @@ class CellAutomatic {
         });
     }
 
+    drawTick(): void{
+        this.calculationTable();
+        this.changeCellType();
+        this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+    }
+
     start(): void{
         this.changeCeillTimerId = setTimeout(()=>{
-            this.calculationTable();
-            this.changeCellType();
-            this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+            this.drawTick();
             this.start();
         }, this.parametrs.interval);
     }
@@ -79,6 +83,14 @@ class CellAutomatic {
         this.cnv.height = this.h = h;
     }
 
+    initEventsPanel(): void {
+        document.querySelector('.panel').addEventListener('click', (e)=>{
+            let id = (<HTMLTextAreaElement>e.target).getAttribute('id');
+            if (id === null) return;
+            this[id]();
+        })
+    }
+
 
 
     openClosePanel(e: Event): void{
@@ -88,7 +100,8 @@ class CellAutomatic {
     init(): void{
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
-        this.start();
+        this.drawTick();
+        this.initEventsPanel();
     }
 
 }
@@ -98,4 +111,3 @@ window.onload = () => {
     cellAutomatic.init();
     console.log(cellAutomatic);
 }
-

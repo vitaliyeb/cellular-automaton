@@ -15,17 +15,13 @@ class CellAutomatic {
     constructor() {
         this.cnv = document.getElementById('canvas');
         this.ctx = this.cnv.getContext('2d');
-        this.changeCeillTimerId = 1000;
+        this.changeCeillTimerId = undefined;
         this.w = 0;
         this.h = 0;
         this.parametrs = new Parametrs();
         this.drawApi = new DrawMap(this.ctx);
 
         window.addEventListener('resize', ()=> this.setSize());
-        document.querySelector('.panel').addEventListener('click', (e: any)=>{
-            let methodName: string = e.target.getAttribute("data-method");
-            if(methodName) return this[methodName](e);
-        });
     }
 
     drawTick(): void{
@@ -35,14 +31,24 @@ class CellAutomatic {
     }
 
     start(): void{
+        if (this.changeCeillTimerId) return;
         this.changeCeillTimerId = setTimeout(()=>{
             this.drawTick();
+            this.changeCeillTimerId = undefined;
             this.start();
         }, this.parametrs.interval);
     }
 
     stop(): void {
-        
+        clearTimeout(this.changeCeillTimerId);
+        this.changeCeillTimerId = undefined;
+    }
+
+    initEventsPanel(): void {
+        document.querySelector('.panel').addEventListener('click', (e)=>{
+            let methodName: string = (<HTMLTextAreaElement>e.target).getAttribute("data-method");
+            if(methodName) return this[methodName](e);
+        })
     }
 
     calculationTable(): void{
@@ -82,16 +88,6 @@ class CellAutomatic {
         this.cnv.width = this.w = w;
         this.cnv.height = this.h = h;
     }
-
-    initEventsPanel(): void {
-        document.querySelector('.panel').addEventListener('click', (e)=>{
-            let id = (<HTMLTextAreaElement>e.target).getAttribute('id');
-            if (id === null) return;
-            this[id]();
-        })
-    }
-
-
 
     openClosePanel(e: Event): void{
         document.querySelector('.panel').classList.toggle('panel_active');

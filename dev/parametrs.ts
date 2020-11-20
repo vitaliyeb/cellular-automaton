@@ -66,8 +66,7 @@ class Parametrs {
         table[3][2] =  new Cell(1, 0);
         table[3][3] =  new Cell(1, 0);
         table[3][4] =  new Cell(1, 0);
-        table[2][4] =  new Cell(1, 0);
-        table[1][3] =  new Cell(1, 0);
+
 
 
         this.table = table;

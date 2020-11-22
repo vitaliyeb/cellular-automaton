@@ -120,6 +120,14 @@ class CellAutomatic {
         this.initEventsPanel();
     }
 
+    setSelectCeill(): void{
+        console.log('asd');
+        
+    }
+
+
+
+
 }
 
 window.onload = () => {

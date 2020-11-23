@@ -42,7 +42,10 @@ class Parametrs {
             (row: number, col: number)=> this.table[row + 1]?.[col + 1]?.['type'] === 1,  //4
             (row: number, col: number)=> this.table[row + 1]?.[col]?.['type'] === 1,  //5
             (row: number, col: number)=> this.table[row + 1]?.[col - 1]?.['type'] === 1,  //6
-            (row: number, col: number)=> this.table[row]?.[col - 1]?.['type'] === 1  //7
+            (row: number, col: number)=> {
+
+                return this.table[row]?.[col - 1]?.['type'] === 1
+            }  //7
         ]
     }
 

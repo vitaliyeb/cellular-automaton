@@ -76,13 +76,12 @@ class CellAutomatic {
             allRegulation: IRegulirationFunc[] = this.parametrs.regulation,
             consideredNeighbors: Array<number> = this.parametrs.consideredNeighbors,
             rosibleRules = consideredNeighbors.map((el, index) => allRegulation[el]);
-            
 
         for( let row = 0; row < table.length; row++ ){
             for (let col = 0; col < table[row].length; col++) {
                 let cell = table[row][col];
                 cell.score = 0;
-                rosibleRules.forEach((f)=> f(row, col) ? ++cell.score : false );
+                rosibleRules.forEach(f => f(row, col) ? ++cell.score : false );
             }
         }
     }
@@ -126,18 +125,19 @@ class CellAutomatic {
     }
 
     toggleCellOutside(e: MouseEvent): void{
-        let el = e.target as HTMLElement;
-        let idCell: number = Number(el.getAttribute('data-num'))-1;
+        let el = e.target as HTMLElement,
+            idCell: number = Number(el.getAttribute('data-num'))-1,
+            consideredNeighbors = this.parametrs.consideredNeighbors;
+
         el.classList.toggle('active');
         let hasActive: boolean = el.classList.contains('active');
 
         if (hasActive){
-            let consideredNeighbors = this.parametrs.consideredNeighbors,
-                after = consideredNeighbors.slice(idCell, consideredNeighbors.length+1),
+            let after = consideredNeighbors.slice(idCell, 8),
                 before = consideredNeighbors.slice(0, idCell);
             this.parametrs.consideredNeighbors = before.concat(idCell, after);
         }else {
-            this.parametrs.consideredNeighbors.splice(idCell, 1)
+            this.parametrs.consideredNeighbors.splice(consideredNeighbors.indexOf(idCell), 1)
         };
     }
 

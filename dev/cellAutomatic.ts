@@ -53,10 +53,22 @@ class CellAutomatic {
 
 
     initEventsPanel(): void {
-        document.querySelector('.panel').addEventListener('click', (e)=>{
+        document.querySelector('.panel').addEventListener('click', (e):void =>{
             let methodName: string = (<HTMLTextAreaElement>e.target).getAttribute("data-method");
             if(methodName) return this[methodName](e);
-        })
+        });
+        this.cnv.addEventListener('click', (e: MouseEvent):void => {
+            let x: number = e.offsetX, 
+                y: number = e.offsetY,
+                cellSize: number = this.parametrs.cellSize,
+                currentColEl: number = Math.ceil(x / cellSize) - 1,
+                currentRowEl: number = Math.ceil(y / cellSize) - 1;
+            
+                this.parametrs.toggleTypeCell(currentRowEl, currentColEl);
+                this.calculationTable();
+                this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
+        });
+
     }
 
     calculationTable(): void{
@@ -107,6 +119,14 @@ class CellAutomatic {
         this.drawTick();
         this.initEventsPanel();
     }
+
+    setSelectCeill(): void{
+        console.log('asd');
+        
+    }
+
+
+
 
 }
 

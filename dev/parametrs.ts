@@ -62,6 +62,11 @@ class Parametrs {
         }
     }
 
+    toggleTypeCell(row: number, col: number): void{
+        let cell = this.table[row][col];
+        cell.type = cell.type ? 0 : 1;
+    }
+
     createTable(w: number, h: number) {
         let { cellSize } = this;
         let wDivision: number = Math.floor(w / cellSize),
@@ -73,11 +78,6 @@ class Parametrs {
             for( let w = 0; w < wDivision; w++ ) row.push( new Cell(0, 0));
             table.push(row);
         }
-        table[3][2] =  new Cell(1, 0);
-        table[3][3] =  new Cell(1, 0);
-        table[3][4] =  new Cell(1, 0);
-
-
 
         this.table = table;
     }

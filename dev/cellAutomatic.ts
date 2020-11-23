@@ -51,9 +51,6 @@ class CellAutomatic {
         this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 
-    setSurroundingСells(): void{
-        console.log("какие окружающие клетки будут считаться");
-    }
 
     initEventsPanel(): void {
         document.querySelector('.panel').addEventListener('click', (e)=>{

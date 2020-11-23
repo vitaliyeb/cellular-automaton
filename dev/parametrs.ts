@@ -24,7 +24,7 @@ class Parametrs {
     table: ICell[][];
     continuationlive: number[];
     birth: number[];
-    сonsideredNeighbors: number[];
+    consideredNeighbors: Array<number>;
     regulation: IRegulirationFunc[];
 
     constructor() {
@@ -33,7 +33,7 @@ class Parametrs {
         this.table = undefined;
         this.continuationlive = [2, 3];
         this.birth = [3];
-        this.сonsideredNeighbors = [0, 1, 2, 3, 4, 5, 6, 7];
+        this.consideredNeighbors = [0, 1, 2, 3, 4, 5, 6, 7];
         this.regulation = [
             (row: number, col: number)=> this.table[row - 1]?.[col - 1]?.['type'] === 1, //0
             (row: number, col: number)=> this.table[row - 1]?.[col]?.['type'] === 1,  //1

@@ -74,8 +74,8 @@ class CellAutomatic {
     calculationTable(): void{
         let table: Cell[][] = this.parametrs.table,
             allRegulation: IRegulirationFunc[] = this.parametrs.regulation,
-            сonsideredNeighbors: number[] = this.parametrs.сonsideredNeighbors,
-            rosibleRules = сonsideredNeighbors.map((el, index) => allRegulation[index]);
+            consideredNeighbors: Array<number> = this.parametrs.consideredNeighbors,
+            rosibleRules = consideredNeighbors.map((el, index) => allRegulation[el]);
             
 
         for( let row = 0; row < table.length; row++ ){
@@ -123,6 +123,22 @@ class CellAutomatic {
     setSelectCell(): void{
         console.log('asd');
         
+    }
+
+    toggleCellOutside(e: MouseEvent): void{
+        let el = e.target as HTMLElement;
+        let idCell: number = Number(el.getAttribute('data-num'))-1;
+        el.classList.toggle('active');
+        let hasActive: boolean = el.classList.contains('active');
+
+        if (hasActive){
+            let consideredNeighbors = this.parametrs.consideredNeighbors,
+                after = consideredNeighbors.slice(idCell, consideredNeighbors.length+1),
+                before = consideredNeighbors.slice(0, idCell);
+            this.parametrs.consideredNeighbors = before.concat(idCell, after);
+        }else {
+            this.parametrs.consideredNeighbors.splice(idCell, 1)
+        };
     }
 
 

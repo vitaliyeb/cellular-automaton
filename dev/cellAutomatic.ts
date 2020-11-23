@@ -25,8 +25,8 @@ class CellAutomatic {
     }
 
     drawTick(): void{
-        this.calculationTable();
         this.changeCellType();
+        this.calculationTable();
         this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 

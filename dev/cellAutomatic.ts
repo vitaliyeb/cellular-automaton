@@ -120,7 +120,7 @@ class CellAutomatic {
         this.initEventsPanel();
     }
 
-    setSelectCeill(): void{
+    setSelectCell(): void{
         console.log('asd');
         
     }

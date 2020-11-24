@@ -1,7 +1,9 @@
 .setSelectCell
   width 100%
   height 100%
-  display flex
+  display none
+  &.active
+    display flex
   &__grid
     width 150px
     height 150px
@@ -19,3 +21,22 @@
     &.current
       background-color #3e7c3a
       cursor default
+
+
+.setBD
+  margin-left 10px
+  & p
+    font-family 'Roboto',sans-serif
+    font-size clamp(15px, 2vw, 16px)
+  &__input
+    display flex
+    justify-content space-between
+    margin 10px 0
+    align-items center
+    & > input
+      outline none
+      border 1px solid #dbdbdb
+      box-sizing border-box
+      padding 3px 10px
+      border-radius 4px
+      width 50%

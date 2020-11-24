@@ -51,7 +51,6 @@ class CellAutomatic {
         this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
     }
 
-
     initEventsPanel(): void {
         document.querySelector('.panel').addEventListener('click', (e):void =>{
             let methodName: string = (<HTMLTextAreaElement>e.target).getAttribute("data-method");
@@ -68,7 +67,7 @@ class CellAutomatic {
                 this.calculationTable();
                 this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
         });
-
+        Array.from(document.querySelectorAll('.setBD-change')).forEach(el => el.addEventListener('input', (e: InputEvent)=>this.changeBD(e)))
     }
 
     calculationTable(): void{
@@ -141,7 +140,22 @@ class CellAutomatic {
         };
     }
 
-
+    changeBD(e: InputEvent): void {
+        let value: string = (<HTMLInputElement>e.target).value,
+            arrValues: string[] = value.split(',').filter(el => el.trim() !== ''),
+            variableValues: number[];
+        try {
+            variableValues =arrValues.map((value: string): number|never =>{
+                let number = Number(value);
+                if (isNaN(number)) throw Error('не число');
+                return number;
+            })
+        } catch (e) {
+            console.log(e.message)
+        } finally {
+            console.log(variableValues)
+        }
+    }
 
 
 }

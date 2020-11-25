@@ -147,13 +147,11 @@ class CellAutomatic {
         try {
             variableValues =arrValues.map((value: string): number|never =>{
                 let number = Number(value);
-                if (isNaN(number)) throw Error('не число');
+                if (isNaN(number)) throw Error(`${value} is not a number.`);
                 return number;
             })
         } catch (e) {
-            console.log(e.message)
-        } finally {
-            console.log(variableValues)
+            document.querySelector('.setBD__warning').textContent = e.message;
         }
     }
 

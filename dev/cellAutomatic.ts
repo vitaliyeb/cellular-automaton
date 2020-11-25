@@ -151,8 +151,9 @@ class CellAutomatic {
                 return number;
             })
         } catch (e) {
-            document.querySelector('.setBD__warning').textContent = e.message;
+            return document.querySelector('.setBD__warning').textContent = e.message;
         }
+        document.querySelector('.setBD__warning').textContent = '';
     }
 
 

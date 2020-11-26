@@ -149,11 +149,16 @@ class CellAutomatic {
                 let number = Number(value);
                 if (isNaN(number)) throw Error(`${value} is not a number.`);
                 return number;
-            })
+            });
+            document.querySelector('.setBD__warning').textContent = '';
+            type PoleValue = 'birth';
+            let pole = (<HTMLInputElement>e.target).getAttribute('data-pole');
+            this.parametrs[pole] = variableValues;
+            console.log(this.parametrs);
+            
         } catch (e) {
-            return document.querySelector('.setBD__warning').textContent = e.message;
+            document.querySelector('.setBD__warning').textContent = e.message;
         }
-        document.querySelector('.setBD__warning').textContent = '';
     }
 
 

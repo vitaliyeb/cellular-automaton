@@ -19,6 +19,7 @@ class Cell implements ICell{
 }
 
 class Parametrs {
+    [index: string]: any;
     cellSize: number;
     interval: number;
     table: ICell[][];

@@ -129,9 +129,12 @@ class CellAutomatic {
     }
 
     setActiveCustomElement(newActiveElement: HTMLElement): void{
+        document.querySelector('.panel__setting-items > svg.active').classList.remove('active');
         newActiveElement.classList.add('active');
+        console.log(newActiveElement.getAttribute('id'));
         
-        
+        document.querySelector(".panel__actions > div.active").classList.remove('active');;
+        document.querySelector(`#${newActiveElement.getAttribute('data-open')}`).classList.add('active');
     }
 
     toggleCellOutside(e: MouseEvent): void{

@@ -18,7 +18,7 @@
             <div class="panel__setting">
                 <p>customization</p>
                 <div class="panel__setting-items">
-                    <svg data-method="setSelectCell" width="30px" height="30px" fill="red" viewBox="0 0 30 30">
+                    <svg data-method="setSelectCell" class="active" data-open="selectCell" width="30px" height="30px" fill="red" viewBox="0 0 30 30">
                         <line x1="10" y1="0" x2="10" y2="100" stroke-width="2.5" stroke="#306889" />
                         <rect x="22" y="22" width="7" height="7" fill="#306889"/>
                         <rect x="0" y="0" width="7" height="7" fill="#306889"/>
@@ -26,7 +26,7 @@
                         <line x1="0" y1="10" x2="100" y2="10" stroke-width="2.5" stroke="#306889" />
                         <line x1="0" y1="20" x2="100" y2="20" stroke-width="2.5" stroke="#306889" />
                     </svg>
-                    <svg data-method="setPropertyHappyDead" width="30px" height="30px" fill="red" viewBox="0 0 30 30">
+                    <svg data-method="setPropertyHappyDead" data-open="bd" width="30px" height="30px" fill="red" viewBox="0 0 30 30">
                         <text font-size="15px" fill="#306889" x="2" y="10">x</text>
                         <text font-size="15px" fill="#306889" x="2" y="20">x</text>
                         <text font-size="15px" fill="#306889" x="2" y="30">x</text>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="panel__actions">
-                <div class="setSelectCell">
+                <div id="selectCell" class="active setSelectCell">
                     <div class="setSelectCell__grid">
                         <div data-method="toggleCellOutside" data-num="5" class="setSelectCell__item active"></div>
                         <div data-method="toggleCellOutside" data-num="6" class="setSelectCell__item active"></div>
@@ -53,7 +53,7 @@
                         <div data-method="toggleCellOutside" data-num="1" class="setSelectCell__item active"></div>
                     </div>
                 </div>
-                <div class="setBD">
+                <div id="bd" class="setBD">
                     <p class="setBD__note">Enter numbers from 1 to 8 separated by commas.</p>
                     <div class="setBD__input">
                         <p>Birth: </p> <input data-pole="birth" class="setBD-change" value="3" type="text">

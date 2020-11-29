@@ -17,6 +17,7 @@ export default class DrawMap implements DrawMapInterface{
 
     drawCellMap(table: Cell[][], cellSize: number): void {
         let { ctx } = this;
+        console.log('s');
 
         for (let i = 0; i < table.length; i++){
             for (let j = 0; j < table[i].length; j++){
@@ -25,14 +26,14 @@ export default class DrawMap implements DrawMapInterface{
                     y = cellSize * i;
 
                 ctx.beginPath();
-                ctx.fillStyle = item.type ? '#000' : '#fff';
+                ctx.fillStyle = item.type ? '#3e7c3a' : '#fff';
                 ctx.strokeStyle = 'green';
                 ctx.fillRect( x, y, cellSize , cellSize);
                 ctx.strokeRect(x, y, cellSize, cellSize);
-                ctx.font = '17px serif';
+                ctx.font = '15px Roboto';
                 ctx.textBaseline = 'middle';
                 ctx.textAlign = 'center';
-                ctx.fillStyle = 'red';
+                ctx.fillStyle = '#282828';
                 ctx.fillText(item.score, x + cellSize / 2, y + cellSize / 2, cellSize); 
             }
         }

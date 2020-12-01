@@ -128,6 +128,11 @@ class CellAutomatic {
         this.setActiveCustomElement(el)
     }
 
+    setSizeCell(e: MouseEvent): void{
+        let el = e.target as HTMLElement;
+        this.setActiveCustomElement(el)
+    }
+
     setActiveCustomElement(newActiveElement: HTMLElement): void{
         document.querySelector('.panel__setting-items > svg.active').classList.remove('active');
         newActiveElement.classList.add('active');

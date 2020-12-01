@@ -37,7 +37,7 @@
                         <path d="M21 18 H29 M23.5 13 V16 M26.5 13 V16"          stroke-width="2"  stroke="#306889" fill="transparent"/>
                         <path d="M21 28 Q25 26 29 28 M23.5 22 V25 M26.5 22 V25" stroke-width="2"  stroke="#306889" fill="transparent"/>
                     </svg>
-                    <svg width="30px" height="30px" viewBox="0 0 30 30">
+                    <svg data-method="setSizeCell" data-open="setSizeAction" width="30px" height="30px" viewBox="0 0 30 30">
                         <rect x="0" y="0" width="30" height="30" stroke="#306889" fill="none" stroke-width="2" />
                         <path d="M3 6 L6 3 L2 6 L6 9 L4 6 H20 L17 3 L20 6 L17 9 L21 6
                                 M26 10 L23 13 L26 9 L29 13 L26 10  V27 L23 24 L26 27 L29 24 L26 28" stroke-width='2' stroke="#306889" />
@@ -66,6 +66,13 @@
                     </div>
                     <div class="setBD__input">
                         <p>Continue to live: </p> <input data-pole="continuationlive" class="setBD-change" value="2, 3" type="text">
+                    </div>
+                    <p class="setBD__warning"></p>
+                </div>
+                <div id="setSizeAction" class="setSizeCell">
+                    <p class="setBD__note">Enter the length of the side of the square.</p>
+                    <div class="row-input">
+                        <p>Size: </p> <input data-pole="cellSize" class="change_size" value="40" type="text">
                     </div>
                     <p class="setBD__warning"></p>
                 </div>

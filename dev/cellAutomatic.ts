@@ -68,6 +68,7 @@ class CellAutomatic {
                 this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
         });
         Array.from(document.querySelectorAll('.setBD-change')).forEach(el => el.addEventListener('input', (e: InputEvent)=>this.changeBD(e)))
+
     }
 
     calculationTable(): void{
@@ -130,7 +131,7 @@ class CellAutomatic {
 
     setSizeCell(e: MouseEvent): void{
         let el = e.target as HTMLElement;
-        this.setActiveCustomElement(el)
+        this.setActiveCustomElement(el);
     }
 
     setActiveCustomElement(newActiveElement: HTMLElement): void{

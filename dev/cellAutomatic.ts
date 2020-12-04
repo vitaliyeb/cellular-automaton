@@ -68,6 +68,7 @@ class CellAutomatic {
                 this.drawApi.drawCellMap(this.parametrs.table, this.parametrs.cellSize);
         });
         Array.from(document.querySelectorAll('.setBD-change')).forEach(el => el.addEventListener('input', (e: InputEvent)=>this.changeBD(e)))
+        document.querySelector('.apply-change-cellSize').addEventListener('click',()=>this.changeCellSize());
 
     }
 
@@ -130,6 +131,7 @@ class CellAutomatic {
     }
 
     setSizeCell(e: MouseEvent): void{
+        (document.querySelector('.change_size') as HTMLInputElement).value = String(this.parametrs.cellSize);
         let el = e.target as HTMLElement;
         this.setActiveCustomElement(el);
     }
@@ -137,7 +139,6 @@ class CellAutomatic {
     setActiveCustomElement(newActiveElement: HTMLElement): void{
         document.querySelector('.panel__setting-items > svg.active').classList.remove('active');
         newActiveElement.classList.add('active');
-        console.log(newActiveElement.getAttribute('id'));
         
         document.querySelector(".panel__actions > div.active").classList.remove('active');;
         document.querySelector(`#${newActiveElement.getAttribute('data-open')}`).classList.add('active');
@@ -158,6 +159,10 @@ class CellAutomatic {
         }else {
             this.parametrs.consideredNeighbors.splice(consideredNeighbors.indexOf(idCell), 1)
         };
+    }
+
+    changeCellSize(): void{
+
     }
 
     changeBD(e: InputEvent): void {

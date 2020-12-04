@@ -132,6 +132,7 @@ class CellAutomatic {
 
     setSizeCell(e: MouseEvent): void{
         (document.querySelector('.change_size') as HTMLInputElement).value = String(this.parametrs.cellSize);
+        document.querySelector('.warning-cellSize').textContent = '';
         let el = e.target as HTMLElement;
         this.setActiveCustomElement(el);
     }
@@ -162,6 +163,14 @@ class CellAutomatic {
     }
 
     changeCellSize(): void{
+        let value: string = (<HTMLInputElement>document.querySelector('.change_size')).value,
+            num: number = Number(value);
+        if (isNaN(num)){
+            document.querySelector('.warning-cellSize').textContent = `${value} not a number.`;
+            return;
+        }
+        document.querySelector('.warning-cellSize').textContent = ``;
+        this.parametrs.cellSize = num;
 
     }
 

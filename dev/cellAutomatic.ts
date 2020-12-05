@@ -171,6 +171,9 @@ class CellAutomatic {
         }
         document.querySelector('.warning-cellSize').textContent = ``;
         this.parametrs.cellSize = num;
+        this.setSize();
+        this.parametrs.createTable(this.w, this.h);
+        this.drawTick();
 
     }
 

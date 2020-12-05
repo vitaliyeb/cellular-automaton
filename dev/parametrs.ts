@@ -29,7 +29,7 @@ class Parametrs {
     regulation: IRegulirationFunc[];
 
     constructor() {
-        this.cellSize = 40;
+        this.cellSize = 30;
         this.interval = 200;
         this.table = undefined;
         this.continuationlive = [2, 3];

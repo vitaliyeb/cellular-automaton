@@ -46,7 +46,7 @@
                     <svg data-method="setTimeChangeCell" data-open="changeTimer" width="30px" height="30px" viewBox="0 0 30 30">
                         <circle cx="15" cy="15" r="13" stroke-width="2" stroke="#306889" fill="transparent" />
                         <circle cx="15" cy="15" r="2" fill="#306889" />
-                        <path d="" stroke="#306889" />
+                        <path d="M15.5 15 v-9 M15 15 h5" stroke="#306889" stroke-width="2"/>
                     </svg>
                 </div>
             </div>
@@ -82,6 +82,15 @@
                         <p>Size: </p> <input data-pole="cellSize" class="change_size setting-input" value="30" type="text">
                     </div>
                     <p class="setBD__warning warning-cellSize"></p>
+                    <p class="button-apply apply-change-cellSize">apply</p>
+                </div>
+
+                <div id="changeTimer" class="setTimer">
+                    <p class="setBD__note">Enter the required number of milliseconds required for the next change.</p>
+                    <div class="row-input">
+                        <p>Millisecond: </p> <input data-pole="interval" class="change_interval setting-input" value="30" type="text">
+                    </div>
+                    <p class="setBD__warning warning-interval"></p>
                     <p class="button-apply apply-change-cellSize">apply</p>
                 </div>
             </div>

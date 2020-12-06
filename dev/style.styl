@@ -31,6 +31,8 @@ body
   background-color #847d89cf
   box-sizing border-box
   padding 10px
+  & > * 
+    font-family: 'Roboto', sans-serif;
   &__buttons
     display grid
     grid-template-columns repeat(3, 1fr)
@@ -83,7 +85,6 @@ body
       margin-bottom 5px
       text-align center
       font-size 24px
-      font-family: 'Roboto', sans-serif;
     &-items
       & svg
         cursor pointer
@@ -130,3 +131,8 @@ p.warning-cellSize{
   margin-top 1px
   font-size 16px
 }
+
+.setTimer
+  margin-left 10px
+  & > .setBD__note
+    font-size 15px

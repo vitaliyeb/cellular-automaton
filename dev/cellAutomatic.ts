@@ -120,6 +120,13 @@ class CellAutomatic {
         this.initEventsPanel();
     }
 
+    setTimeChangeCell(e: MouseEvent): void{
+        (document.querySelector('.change_interval') as HTMLInputElement).value = String(this.parametrs.interval);
+        document.querySelector('.warning-interval').textContent = '';
+        let el = e.target as HTMLElement;
+        this.setActiveCustomElement(el);
+    }
+
     setSelectCell(e: MouseEvent): void{
         let el = e.target as HTMLElement;
         this.setActiveCustomElement(el)

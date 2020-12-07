@@ -69,6 +69,7 @@ class CellAutomatic {
         });
         Array.from(document.querySelectorAll('.setBD-change')).forEach(el => el.addEventListener('input', (e: InputEvent)=>this.changeBD(e)))
         document.querySelector('.apply-change-cellSize').addEventListener('click',()=>this.changeCellSize());
+        document.querySelector('.apply-change-interval').addEventListener('click', ()=>this.changeInterval());
 
     }
 
@@ -127,6 +128,19 @@ class CellAutomatic {
         this.setActiveCustomElement(el);
     }
 
+    changeInterval(): void{
+        let value: string = (<HTMLInputElement>document.querySelector('.change_interval')).value,
+            num: number = Number(value);
+        if (isNaN(num)){
+            document.querySelector('.warning-interval').textContent = `${value} not a number.`;
+            return;
+        }
+        document.querySelector('.warning-interval').textContent = ``;
+        console.log(num);
+        
+        this.parametrs.interval = num;
+    }
+
     setSelectCell(e: MouseEvent): void{
         let el = e.target as HTMLElement;
         this.setActiveCustomElement(el)
@@ -181,7 +195,6 @@ class CellAutomatic {
         this.setSize();
         this.parametrs.createTable(this.w, this.h);
         this.drawTick();
-
     }
 
     changeBD(e: InputEvent): void {
@@ -209,5 +222,4 @@ class CellAutomatic {
 window.onload = () => {
     let cellAutomatic = new CellAutomatic();
     cellAutomatic.init();
-    console.log(cellAutomatic);
 }

@@ -17,8 +17,6 @@ export default class DrawMap implements DrawMapInterface{
 
     drawCellMap(table: Cell[][], cellSize: number): void {
         let { ctx } = this;
-        console.log('s');
-
         for (let i = 0; i < table.length; i++){
             for (let j = 0; j < table[i].length; j++){
                 let item = table[i][j],
